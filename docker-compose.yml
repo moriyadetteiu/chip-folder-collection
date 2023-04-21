@@ -1,9 +1,17 @@
 version: '3'
 
 services:
-   scraping:
+  scraping:
     build: ./docker/scraping
     volumes:
       - ./scraping:/usr/src/python
       - ./data:/tmp/data
+    tty: true
+  front:
+    build: ./docker/front
+    volumes:
+      - ./front:/usr/src/app
+      # - ./data:/usr/src/app/data
+    ports:
+      - 3000:3000
     tty: true
