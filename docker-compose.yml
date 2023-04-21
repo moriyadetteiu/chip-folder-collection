@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+   scraping:
+    build: ./docker/scraping
+    volumes:
+      - ./scraping:/usr/src/python
+      - ./data:/tmp/data
+    tty: true
